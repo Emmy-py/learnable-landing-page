@@ -60,4 +60,4 @@ public/images/      images
 ## Credits
 
 - Original platform and brand: [Learnable by Genesys Tech Hub](https://learnable.genesystechhub.com)
-- Redesign built by [Emmanuel Ngene](https://github.com/Emmy-py) · [LinkedIn](https://www.linkedin.com/in/emmanuel-ngene-708337263) · [X](https://x.com/_devemmy)
+- Redesign built by [Emmy.codes🛠️](https://emmycodes.vercel.app/) · [GitHub](https://github.com/Emmy-py) · [LinkedIn](https://www.linkedin.com/in/emmanuel-ngene-708337263) · [X](https://x.com/_devemmy)
