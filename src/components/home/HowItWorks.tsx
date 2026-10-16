@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionHeading, { Accent } from "../SectionHeading";
 import { steps } from "@/data/content";
+import { reveal } from "@/components/motion/reveal";
 
 export default function HowItWorks() {
   return (
@@ -15,15 +16,15 @@ export default function HowItWorks() {
         }
       />
       <div className="mt-10 grid gap-5 md:grid-cols-3 lg:gap-8">
-        {steps.map((s) => (
-          <article key={s.step} className={`flex flex-col overflow-hidden rounded-xl text-white ${s.bg}`}>
+        {steps.map((s, i) => (
+          <article key={s.step} {...reveal("up", i * 150)} className={`card-lift group flex flex-col overflow-hidden rounded-xl text-white ${s.bg}`}>
             <div className="p-5">
-              <span className="inline-block rounded-full bg-white px-4 py-1 text-sm text-navy">{s.step}</span>
+              <span className="inline-block rounded-full bg-white px-4 py-1 text-sm text-navy transition-transform duration-500 ease-spring group-hover:scale-110">{s.step}</span>
               <h3 className="mt-6 text-2xl">{s.title}</h3>
               <p className="mt-4 text-[15px]">{s.description}</p>
             </div>
             <div className="mt-auto flex justify-center px-5 pt-6">
-              <Image src={s.image} alt="" width={295} height={160} className="h-40 w-auto object-contain object-bottom" />
+              <Image src={s.image} alt="" width={295} height={160} className="h-40 w-auto object-contain object-bottom transition-transform duration-700 ease-out-expo group-hover:-translate-y-2 group-hover:scale-105" />
             </div>
           </article>
         ))}

@@ -1,10 +1,11 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Button from "../Button";
 import SectionHeading, { Accent } from "../SectionHeading";
 import { CarouselButtons, CarouselTrack, useCarousel } from "../Carousel";
 import { projects } from "@/data/content";
+import { hoverZoom, reveal } from "@/components/motion/reveal";
 
 export default function StudentWorks() {
   const { ref, scroll } = useCarousel();
@@ -24,13 +25,14 @@ export default function StudentWorks() {
       </div>
 
       <CarouselTrack trackRef={ref} className="mt-10">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <article
             key={p.title}
-            className="flex w-[85%] shrink-0 snap-start flex-col rounded-[28px] bg-card p-4 sm:w-[calc(50%-8px)] lg:w-[386px]"
+            {...reveal("up", i * 120)}
+            className="group flex w-[85%] shrink-0 snap-start flex-col rounded-[28px] bg-card p-4 sm:w-[calc(50%-8px)] lg:w-[386px]"
           >
             <div className="relative aspect-[359/306] w-full overflow-hidden rounded-2xl">
-              <Image src={p.image} alt={`${p.title} cover`} fill sizes="(min-width:1024px) 360px, 85vw" className="object-cover object-left" />
+              <Image src={p.image} alt={`${p.title} cover`} fill sizes="(min-width:1024px) 360px, 85vw" className={`object-cover object-left ${hoverZoom}`} />
             </div>
             <h3 className="mt-4 text-2xl">{p.title}</h3>
             <p className="mt-1 text-muted">{p.cohort}</p>

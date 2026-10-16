@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -13,17 +13,21 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur">
-      <nav className="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <nav className="enter-down mx-auto flex max-w-[1100px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Logo />
 
         <ul className="hidden items-center gap-5 text-sm text-navy lg:flex xl:gap-7">
-          {navLinks.map((link) => {
+          {navLinks.map((link, i) => {
             const active = link.href === pathname;
             return (
-              <li key={link.label}>
+              <li key={link.label} className="enter-down" style={{ "--enter-delay": `${150 + i * 60}ms` } as React.CSSProperties}>
                 <Link
                   href={link.href}
-                  className={`border-b pb-1 transition-colors hover:border-navy ${active ? "border-navy" : "border-transparent"}`}
+                  className={`relative border-b pb-1 transition-colors ${
+                    active
+                      ? "border-navy"
+                      : "border-transparent after:absolute after:inset-x-0 after:-bottom-px after:h-px after:origin-left after:scale-x-0 after:bg-navy after:transition-transform after:duration-500 after:ease-out-expo hover:after:scale-x-100"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -51,7 +55,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-black/5 bg-white px-4 pb-6 shadow-lg sm:px-6 lg:hidden">
+        <div id="mobile-menu" className="enter-down border-t border-black/5 bg-white px-4 pb-6 shadow-lg sm:px-6 lg:hidden">
           <ul className="flex flex-col py-2 text-navy">
             {navLinks.map((link) => (
               <li key={link.label}>

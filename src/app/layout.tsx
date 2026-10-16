@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RevealObserver from "@/components/motion/RevealObserver";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -17,11 +18,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${dmSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${dmSans.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Lets CSS hide scroll-reveal content only when JS is available to reveal it. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="flex min-h-full flex-col font-sans">
+        <div aria-hidden className="scroll-progress fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-brand" style={{ transform: "scaleX(0)" }} />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        {/* overflow-x-clip: elements waiting to slide in from the side must not cause sideways scroll */}
+        <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
+        <RevealObserver />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navLinks, socials } from "@/data/content";
+import { reveal } from "@/components/motion/reveal";
 
 const heading = "text-base text-navy";
 const linkCls = "text-sm text-muted hover:text-navy";
@@ -8,7 +9,7 @@ const linkCls = "text-sm text-muted hover:text-navy";
 export default function Footer() {
   return (
     <footer className="mx-auto w-full max-w-[1100px] px-4 pt-16 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_0.7fr_1.1fr_0.8fr_1.2fr] lg:gap-6">
+      <div {...reveal("up")} className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_0.7fr_1.1fr_0.8fr_1.2fr] lg:gap-6">
         <div>
           <Image src="/images/footer-logos.png" alt="Learnable by Genesys" width={168} height={40} />
           <p className="mt-5 max-w-64 text-sm text-muted">

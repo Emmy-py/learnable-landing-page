@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { reveal } from "@/components/motion/reveal";
 
 export default function FaqAccordion({ items }: { items: { question: string; answer: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);
@@ -12,7 +13,8 @@ export default function FaqAccordion({ items }: { items: { question: string; ans
         return (
           <li
             key={item.question}
-            className={`rounded-xl border transition-colors ${isOpen ? "border-brand" : "border-transparent"}`}
+            {...reveal("up", i * 80)}
+            className={`rounded-xl border transition-colors hover:bg-peach/60 ${isOpen ? "border-brand" : "border-transparent"}`}
           >
             <button
               type="button"

@@ -1,10 +1,13 @@
 import Image from "next/image";
+import { reveal } from "@/components/motion/reveal";
 
 export default function TrustedBy() {
   return (
     <section className="mx-auto max-w-[1100px] px-4 pb-16 text-center sm:px-6 lg:px-8">
-      <p className="text-muted">Trusted by</p>
-      <div className="no-scrollbar mt-4 overflow-x-auto">
+      <p {...reveal("up")} className="text-muted">
+        Trusted by
+      </p>
+      <div {...reveal("blur", 150)} className="no-scrollbar mt-4 overflow-x-auto">
         <Image
           src="/images/trusted.png"
           alt="Tenece, Hubly, Google, TalentQL, SBSC, Wicrypt, Access"

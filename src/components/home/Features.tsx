@@ -1,14 +1,15 @@
 import Image from "next/image";
 import SectionHeading, { Accent } from "../SectionHeading";
 import { features } from "@/data/content";
+import { reveal } from "@/components/motion/reveal";
 
 type Feature = (typeof features)[number];
 
-function FeatureCard({ f }: { f: Feature }) {
+function FeatureCard({ f, delay = 0 }: { f: Feature; delay?: number }) {
   return (
-    <article className="flex flex-col rounded-2xl bg-peach p-5 sm:p-6">
+    <article {...reveal("up", delay)} className="card-lift group flex flex-col rounded-2xl bg-peach p-5 sm:p-6">
       <h3 className="max-w-80 text-xl leading-snug sm:text-[22px]">
-        <span className="mr-1">{f.icon}</span>
+        <span className="mr-1 inline-block transition-transform duration-500 ease-spring group-hover:scale-125 group-hover:-rotate-12">{f.icon}</span>
         {f.title}
       </h3>
       <p className="mt-3 text-sm text-muted sm:text-[15px]">{f.description}</p>
@@ -23,7 +24,7 @@ function FeatureCard({ f }: { f: Feature }) {
         </div>
       )}
       <div className="mt-6 flex flex-1 items-end justify-center">
-        <Image src={f.image} alt="" width={340} height={205} className="h-auto w-full max-w-[340px]" />
+        <Image src={f.image} alt="" width={340} height={205} className="h-auto w-full max-w-[340px] transition-transform duration-700 ease-out-expo group-hover:-translate-y-2 group-hover:scale-[1.03]" />
       </div>
     </article>
   );
@@ -41,17 +42,17 @@ export default function Features() {
           </>
         }
       />
-      <p className="mx-auto mt-3 max-w-[620px] text-center text-muted">
+      <p {...reveal("up", 200)} className="mx-auto mt-3 max-w-[620px] text-center text-muted">
         Learnable combines training, mentorship, real projects, and career support into one focused learning experience.
       </p>
 
       <div className="mt-10 grid gap-4 md:grid-cols-[1fr_1.35fr]">
         <FeatureCard f={features[0]} />
-        <FeatureCard f={features[1]} />
+        <FeatureCard f={features[1]} delay={140} />
       </div>
       <div className="mt-4 grid gap-4 md:grid-cols-[1.45fr_1fr]">
         <FeatureCard f={features[2]} />
-        <FeatureCard f={features[3]} />
+        <FeatureCard f={features[3]} delay={140} />
       </div>
     </section>
   );

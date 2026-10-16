@@ -1,3 +1,5 @@
+import { reveal } from "@/components/motion/reveal";
+
 export function Accent({ children }: { children: React.ReactNode }) {
   return <span className="text-brand">{children}</span>;
 }
@@ -15,8 +17,10 @@ export default function SectionHeading({
 }) {
   return (
     <div className={`${align === "center" ? "text-center" : ""} ${className}`}>
-      <p className="text-sm text-navy sm:text-base">{eyebrow}</p>
-      <h2 className="mt-2 text-2xl leading-tight font-normal tracking-tight sm:text-3xl lg:text-[34px]">
+      <p {...reveal("up")} className="text-sm text-navy sm:text-base">
+        {eyebrow}
+      </p>
+      <h2 {...reveal("blur", 120)} className="mt-2 text-2xl leading-tight font-normal tracking-tight sm:text-3xl lg:text-[34px]">
         {title}
       </h2>
     </div>
