@@ -1,4 +1,4 @@
-# Learnable Landing Page — Redesign
+﻿# Learnable Landing Page — Redesign
 
 A responsive redesign of the landing page for **[Learnable](https://learnable.genesystechhub.com)**, built with **Next.js**.
 
@@ -50,7 +50,7 @@ npm run start
 
 ```
 src/
-  app/              layout, home page, 404, favicon (icon.svg)
+  app/              layout, home page, 404, favicon (favicon.ico)
   components/       navbar, footer, buttons, carousel, FAQ accordion
   components/home/  home page sections
   data/content.ts   all page copy and links
