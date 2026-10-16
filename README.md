@@ -1,6 +1,6 @@
-﻿# Learnable Landing Page — Redesign
+﻿# Learnable Website — UI Redesign
 
-A responsive redesign of the landing page for **[Learnable](https://learnable.genesystechhub.com)**, built with **Next.js**.
+A UI redesign of the **[Learnable](https://learnable.genesystechhub.com)** website, built with **Next.js**.
 
 > This is an independent redesign project, not the official site. The live Learnable platform is at
 > **https://learnable.genesystechhub.com**.
@@ -11,7 +11,7 @@ Learnable is a 6–9 month, project-based tech training programme run by [Genesy
 
 ## About this redesign
 
-This project rebuilds the Learnable landing page from a Figma design as a fast, fully responsive Next.js site:
+A UI redesign of the Learnable website as a fast, fully responsive Next.js site:
 
 - **Home page**: hero with a draggable, curved portrait strip; partner logos; about and stats; programmes carousel; features; how it works; student projects carousel; testimonials; partnership; FAQ accordion; and a call to action.
 - **Custom 404 page.**
@@ -40,11 +40,6 @@ Open http://localhost:3000.
 npm run build
 npm run start
 ```
-
-## Deploy
-
-- **Vercel**: import the repo and deploy. The defaults work as they are.
-- **Cloudflare Pages**: deploy with the OpenNext Cloudflare adapter (`@opennextjs/cloudflare`), or configure a static export.
 
 ## Project structure
 
