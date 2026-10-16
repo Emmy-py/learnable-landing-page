@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Learnable Landing Page
 
-## Getting Started
+A responsive redesign of the Learnable by Genesys landing page, built with Next.js (App Router), TypeScript and Tailwind CSS v4.
 
-First, run the development server:
+## Pages
+
+- `/` — Home: hero with a draggable curved portrait strip, programs and student-work carousels, features, how it works, testimonials, partnership, FAQs and a call to action.
+- Any unknown route — custom 404 page.
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+- **Vercel:** import the repo; the defaults (framework Next.js, `npm run build`) work as-is.
+- **Cloudflare:** deploy with the OpenNext Cloudflare adapter (`@opennextjs/cloudflare`), or use Vercel/Netlify for zero-config hosting.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app` — layout, home page, 404
+- `src/components` — shared UI (navbar, footer, buttons, carousel, FAQ accordion)
+- `src/components/home` — home page sections
+- `src/data/content.ts` — all page copy and links
+- `public/images` — images
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Emmanuel Ngene](https://github.com/Emmy-py).
