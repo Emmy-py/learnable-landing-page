@@ -10,10 +10,20 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+// Link previews (WhatsApp, LinkedIn, X…): the image comes from opengraph-image.jpg
+// in this folder; these fill in the text around it.
+const share = {
   title: "Learnable by Genesys — Turning Beginners Into Job-Ready Professionals",
   description:
     "A 6–9 month real work tech training program from Genesys Tech Hub — where beginners become industry-ready builders.",
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://learnable.emmycodes.site"),
+  title: "Learnable by Genesys — Turning Beginners Into Job-Ready Professionals",
+  description: share.description,
+  openGraph: { ...share, url: "/", siteName: "Learnable by Genesys", type: "website" },
+  twitter: { card: "summary_large_image", ...share },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
